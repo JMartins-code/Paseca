@@ -1,0 +1,16 @@
+{% extends 'menu.html.twig' %}
+
+{% block title %}Nouvel archiviste
+{% endblock %}
+
+{% block body %}
+	<h1 class="card-title card-padding pb-0">Créer un nouvel archiviste</h1>
+
+	{{ include('archivistes/_form.html.twig') }}
+
+	<div class="menu-button-container">
+		<a href="{{ path('archivistes_index') }}">
+			<img src="{{ asset('../../assets/images/back.png') }}" alt="user" height="30px"/>
+		</a>
+	</div>
+{% endblock %}

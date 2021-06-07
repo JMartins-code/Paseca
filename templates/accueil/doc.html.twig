@@ -1,0 +1,171 @@
+{% extends 'menu.html.twig' %}
+
+{% block body %}
+	<div class="d-flex justify-content-between">
+		<h4 class="card-title mb-0">Documentation</h4>
+	</div>
+	<div class="d-block d-sm-flex justify-content-between align-items-center">
+		<h5 class="card-sub-title mb-2 mb-sm-0">Statistique la répartition régionale des archives avec les pourcentages</h5>
+	</div>
+	<div class="mdc-layout-grid__inner">
+		<div class="mdc-layout-grid__cell ">
+		
+				1	INTRODUCTION
+1.1	But du document
+Ce document représente le manuel d’utilisation relatif au projet d’étude archivistique incluant une méthode de reconstitution et une proposition sur la sécurisation des actes.
+Ce guide fonctionnel utilisateur est adapté pour vous accompagner dans l’utilisation du système. Procédez dans l'ordre de façon à ne pas perdre le fil du guide ! Vous devez le parcourir entièrement pour faire plus ample connaissance avec cette application.
+1.2	Plan du guide
+Ce guide d'utilisation est destiné à montrer les possibilités d’utilisation de ce système. L’utilisation de cette application est décrite sur 4 paragraphes, à savoir :
+1.	Création ;
+2.	Transferts ;
+3.	Description ;
+4.	Editions ;
+5.	Administration ;
+ 
+2	GENERALITE
+2.1	Prérequis à l’utilisation de l’application
+Afin d’utiliser l’application, nous recommandons de suivre les conseils suivants :
+	Navigateur : le fonctionnement optimal de l’application suppose l’utilisation des navigateurs Firefox (version 59 et plus), Chrome (version 66 et plus), Internet explorer (version 11 et plus). Nous recommandons l’usage de Chrome ;
+	Internet : une connexion à internet peut être indispensable dans le cas d’un accès hors du réseau BUNEC. Il est possible que la connexion disponible au sein du BUNEC soit limitée à l’intranet de l’utilisateur. Le service informatique devra lui donner des accès aux domaines nécessaires pour utiliser l’application ;
+	Profil : disposer d’un profil dans la base de données afin de permettre votre identification et vous accorder l’autorisation de bénéficier des services offerts par l’application. Ce profil est créé par le gestionnaire (Administrateur) de la plateforme. 
+2.1.1	Identification et accès à l’application
+Lorsque vous êtes sur la page d’accueil, pour accéder à l’application, il vous faut vous identifier et vous authentifier au moyen de votre nom d’utilisateur (email) (1)  et de votre mot de passe (2). Une fois authentifié, l’accès à l’application vous est octroyé selon le rôle que le gestionnaire vous a attribué. 
+ 
+Figure 1 Page d'Authentification
+
+
+
+L’utilisateur de la base de données centralisée a des identifiants confidentiels.
+2.1.2	Application
+Après vous être identifié, vous accédez à l’application. Votre identité est reprise sur toutes les pages de l’application. Lorsque vous accédez à l’application, vous arrivez au Tableau de bord suivant :
+
+ 
+Figure 2 Page d'accueil
+
+2.1.3	Menus dans l’application
+La présentation des menus diffère selon le rôle de l’utilisateur connecté. Par ailleurs, la structure est la même pour tout utilisateur. Ainsi nous disposons :
+	D’un menu contenant des informations communes à tous
+	D’un menu principal
+ 
+Figure 3 Information générales
+
+
+
+2.1.3.1	Informations générales
+Ce menu se situe dans le coin supérieur droit de l’écran (voir Figure 3) et se compose de :
+	Editer profil : donne en outre la possibilité à l’utilisateur connecté de mettre à jour les informations sur son nom, son prénom et son matricule (voir Figure 4).
+	Déconnexion : En cliquant dessus, vous fermez votre session dans l’application.
+ 
+Figure 4 Editer profil
+
+2.1.3.2	Menu principal
+Ce menu est situé à gauche (Figure 5) et diffère selon le rôle de l’utilisateur connecté. Par ailleurs, nous recensons des grands titres dont chacun dispose des sous-éléments :
+	Tableau de bord : vous permet de revenir à tout moment sur la page d’accueil ;
+	Création : qui présente les différentes options de création dans l’application (archives, autorité etc…) ; 
+	Transfert : qui déclenche le processus ce de transfert d’une archive ; 
+	Description : qui actionne le processus ce de description d’une archive ;  
+	Editions : qui présente les différent(e)s archives, transferts et descriptions enregistré(e)s ; 
+	Paramètre : qui présente les différentes configurations d’administration à effectuer sur la plateforme.
+ 
+Figure 5 Menu  principal
+
+2.1.4	Pré-configuration de la plateforme par l’administrateur
+Avant le démarrage de l’utilisation de l’application, il est nécessaire que l’administrateur préconfigure certaines informations utiles et nécessaires au bon fonctionnement de celle-ci. Il s’agit des utilisateurs.
+Chaque utilisateur est rattaché à une catégorie (producteurs, contrôleurs, archivistes) et dispose d'un accès à l’application et de droits relatifs à sa fonction.
+2.1.4.1	Utilisateurs
+ 
+ 
+Figure 6 Ajout d'un utilisateur
+
+Il peut aussi visualiser, modifier les informations d’un utilisateur, et retirer cet utilisateur du système. 
+ 
+Figure 7 Liste des utilisateurs
+
+2.1.4.2	Contrôleurs
+ 
+Figure 8 Nouveau contrôleur
+
+2.1.4.3	Producteurs
+ 
+Figure 9 Nouveau producteur
+
+2.1.4.4	Archivistes
+ 
+Figure 10 Nouvel archiviste
+
+
+2.2	Scénario standard d’utilisation de l’application
+2.2.1	Création
+	Archives ;
+	Autorités ;
+	Institution de conservation.
+2.2.2	Transfert
+Envoyer une archive créée à une institution de conservation
+2.2.3	Description
+Ajouter les métadonnées descriptives à une archive transférée
+2.2.4	Editions
+	Archives ;
+	Transferts ;
+	Descriptions.
+3	Gestion de l’information archivistique
+3.1.1	Création
+Pour effectuer les actions relatives à la création il suffit de cliquer sur le menu création et sous-menu si dessous apparaitra
+ 
+Figure 11 Sous-menu création
+
+	Archives ;
+Après avoir cliqué sur archive il suffit de renseigner les champs puis soumettre le formulaire
+ 
+Figure 12 Ajout d'une nouvelle archive
+
+	Autorité ;
+ 
+Figure 13 Ajout d’une nouvelle autorité
+
+	Institution ;
+ 
+Figure 14Ajout d'une institution de conservation
+
+3.1.2	Transfert
+ 
+ 
+Figure 15 Nouveau transfère
+
+3.1.3	Description
+ 
+ 
+Figure 16 Nouvelle description d'archive
+
+3.1.4	Editions
+Pour effectuer les actions relatives à l’édition il suffit de cliquer sur le menu édition et sous-menu si dessous apparaitra
+ 
+Figure 17 Sous-menu éditions
+
+	Archives
+ 
+Figure 18 Liste des archives
+
+ 
+Figure 19 Détails d'une archive
+
+ 
+Figure 20 Interface de modification d'une archive
+
+	Description
+ 
+Figure 21 Liste des descriptions
+
+	Transfert
+ 
+Figure 22 liste des transferts
+
+ 
+4	CONCLUSION
+Ce document est un guide sur les différentes fonctionnalités de l’application à adopter par les utilisateurs.
+En respectant les différentes procédures y mentionnées, l’utilisateur comprendra mieux l’application et s’y retrouvera facilement.
+
+
+			</div>
+		</div>
+	</div>
+{% endblock %}

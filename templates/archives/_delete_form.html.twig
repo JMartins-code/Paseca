@@ -1,0 +1,10 @@
+<form method="post" action="{{ path('archives_delete', {'id': archive.id}) }}" onsubmit="return confirm('Voulez-vous vraimment supprimer cette archive?');">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ archive.id) }}">
+
+  <button class="mdc-button mdc-button--outlined outlined-button--secondary mdc-ripple-upgraded">
+    <!--<i class="material-icons mdc-button__icon">delete</i> Supprimer!-->
+    <img src="{{ asset('../../assets/images/delete.png') }}" alt="user" height="30px"/>
+  </button>
+
+</form>

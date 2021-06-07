@@ -1,0 +1,65 @@
+{% extends 'menu.html.twig' %}
+
+{% block title %}Utilisateurs
+{% endblock %}
+
+{% block body %}
+	<h1 class="card-title card-padding pb-0">Liste des utilisateurs</h1>
+	<div class="table-responsive">
+		<table class="table table-hoverable">
+			<thead>
+				<tr>
+					<th class="text-left">Nom</th>
+					<th class="text-left">Prenom</th>
+					<th class="text-left">Email</th>
+					<th class="text-left">Contact</th>
+					<th class="text-left">Fonction</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for utilisateur in utilisateurs %}
+					<tr>
+						<td class="text-left">{{ utilisateur.Nom }}</td>
+						<td class="text-left">{{ utilisateur.Prenom }}</td>
+						<td class="text-left">{{ utilisateur.email }}</td>
+						<td class="text-left">{{ utilisateur.numTelephone }}</td>
+						<td class="text-left">
+							{% for role in utilisateur.roles %}
+								{% if role == "ROLE_PRODU" %}
+									Producteur
+								{% elseif role == "ROLE_ARCHI" %}
+									Archiviste
+								{% elseif role == "ROLE_CONTR" %}
+									Contrôleur
+								{% elseif role == "ROLE_ADMIN" %}
+									Administrateur
+								{% endif %}
+							{% endfor %}
+						</td>
+						
+						<td class="text-right">
+							<a href="{{ path('utilisateurs_show', {'id': utilisateur.id}) }}" class="mdc-button mdc-button--raised icon-button filled-button--info">
+								<i class="material-icons mdc-button__icon">visibility</i>
+							</a>
+
+							<a href="{{ path('modifier_profil', {'id': utilisateur.id}) }}" class="mdc-button mdc-button--raised icon-button filled-button--success">
+								<i class="material-icons mdc-button__icon">colorize</i>
+							</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="3">Aucun utilisateurs trouvés</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+	</div>
+	<div class="menu-button-container">
+		<a href="{{ path('utilisateurs_new') }}" class="mdc-button mdc-menu-button mdc-button--raised icon-button shaped-button secondary-filled-button">
+			<i class="material-icons mdc-button__icon">add</i>
+		</a>
+	</div>
+{% endblock %}

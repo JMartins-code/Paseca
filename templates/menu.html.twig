@@ -1,0 +1,338 @@
+{% extends 'base.html.twig' %}
+
+{% block aside %}
+	<aside class="mdc-drawer mdc-drawer--dismissible mdc-drawer--open">
+		<div class="mdc-drawer__header">
+			<center>
+				<a href="{{ path('accueil') }}" class="brand-logo">
+					<img src="{{ asset('assets/images/logobunec.png') }}" alt="logoBunec" height="100px">
+				</a>
+			</center>
+		</div>
+		<div class="mdc-drawer__content">
+			<div class="user-info">
+				{% if app.user %}
+					<p class="name">
+						{{ app.user.prenom }}
+						{{ app.user.nom }}
+					</p>
+					<p class="email">
+						<i>{{ app.user.email }}</i>
+					</p>
+				{% else %}
+					<p class="name">
+						<a href="{{ path('app_login') }}">
+							<button class="mdc-button mdc-menu-button">
+								<span class="d-flex align-items-center">
+									<span class="figure">
+										<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">account_circle</i>
+									</span>
+									<span class="user-name">
+										Se connecter
+									</span>
+								</span>
+							</button>
+						</a>
+					</p>
+				{% endif %}
+			</div>
+			<div class="mdc-list-group">
+				<nav class="mdc-list mdc-drawer-menu">
+					<div class="mdc-list-item mdc-drawer-item">
+						<a class="mdc-drawer-link" href="{{ path('accueil') }}">
+							<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">home</i>
+							Tableau de bord
+						</a>
+					</div>
+					<div class="mdc-list-item mdc-drawer-item">
+						<a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="ui-sub-menu">
+							<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">create</i>
+							Création
+							<i class="mdc-drawer-arrow material-icons">chevron_right</i>
+						</a>
+						<div class="mdc-expansion-panel" id="ui-sub-menu">
+							<nav class="mdc-list mdc-drawer-submenu">
+								<div class="mdc-list-item mdc-drawer-item">
+									<a class="mdc-drawer-link" href="{{ path('archives_new') }}">
+										<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">archive</i>
+										Archives
+									</a>
+								</div>
+
+								{% if is_granted('ROLE_ADMIN') %}
+									{#<div class="mdc-list-item mdc-drawer-item">
+																												<a class="mdc-drawer-link" href="{{ path('autorites_new') }}">
+																													<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">perm_identity</i>
+																													Autorité
+																												</a>
+																											</div>#}
+									<div class="mdc-list-item mdc-drawer-item">
+										<a class="mdc-drawer-link" href="{{ path('institutions_new') }}">
+											<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">account_balance</i>
+											Institution
+										</a>
+									</div>
+								{% endif %}
+							</nav>
+						</div>
+					</div>
+					{% if is_granted('ROLE_CONTR') %}
+						<div class="mdc-list-item mdc-drawer-item">
+							<a class="mdc-drawer-link" href="{{ path('transferts_new') }}">
+								<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">share</i>
+								Transfert
+							</a>
+						</div>
+					{% endif %}
+
+					{% if is_granted('ROLE_ARCHI') %}
+						<div class="mdc-list-item mdc-drawer-item">
+							<a class="mdc-drawer-link" href="{{ path('descriptions_new') }}">
+								<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">description</i>
+								Description
+							</a>
+						</div>
+					{% endif %}
+
+					<div class="mdc-list-item mdc-drawer-item">
+						<a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="sample-page-submenu">
+							<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">list</i>
+							Editions
+							<i class="mdc-drawer-arrow material-icons">chevron_right</i>
+						</a>
+						<div class="mdc-expansion-panel" id="sample-page-submenu">
+							<nav
+								class="mdc-list mdc-drawer-submenu">
+								<!-- <div class="mdc-list-item mdc-drawer-item">
+																																	<a class="mdc-drawer-link" href="{#{path('statistique')}#}">
+																																		<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">insert_chart</i>
+																																		Statistique
+																																	</a>
+																																</div>
+																																<div class="mdc-list-item mdc-drawer-item">
+																																	<a class="mdc-drawer-link" href="#">
+																																		<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">folder_open</i>
+																																		Registres
+																																	</a>
+																																</div> -->
+								<div class="mdc-list-item mdc-drawer-item">
+									<a class="mdc-drawer-link" href="{{ path('archives_index') }}">
+										<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">archive</i>
+										Archives
+									</a>
+								</div>
+								<!-- <div class="mdc-list-item mdc-drawer-item">
+																																	<a class="mdc-drawer-link" href="{{ path('autorites_index') }}">
+																																		<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">supervisor_account</i>
+																																		Autorites
+																																	</a>
+																																</div>
+																																<div class="mdc-list-item mdc-drawer-item">
+																																	<a class="mdc-drawer-link" href="{{ path('institutions_index') }}">
+																																		<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">domain</i>
+																																		Institutions
+																																	</a>
+																																</div> -->
+								{% if is_granted('ROLE_ARCHI') %}
+									<div class="mdc-list-item mdc-drawer-item">
+										<a class="mdc-drawer-link" href="{{ path('descriptions_index') }}">
+											<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">description</i>
+											Descritptions
+										</a>
+									</div>
+								{% endif %}
+								{% if is_granted('ROLE_CONTR') %}
+									<div class="mdc-list-item mdc-drawer-item">
+										<a class="mdc-drawer-link" href="{{ path('transferts_index') }}">
+											<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">share</i>
+											Transfert
+										</a>
+									</div>
+								{% endif %}
+								<!--<div class="mdc-list-item mdc-drawer-item">
+																																	<a class="mdc-drawer-link" href="{{ path('institutions_index') }}">
+																																		<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">domain</i>
+																																		Institutions
+																																	</a>
+																																</div>-->
+							</nav>
+						</div>
+					</div>
+
+					<!-- <div class="mdc-list-item mdc-drawer-item">
+																					<a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="consultation-sm">
+																						<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">zoom_in</i>
+																						Consultation
+																						<i class="mdc-drawer-arrow material-icons">chevron_right</i>
+																					</a>
+																					<div class="mdc-expansion-panel" id="consultation-sm">
+																						<nav class="mdc-list mdc-drawer-submenu">
+																							<div class="mdc-list-item mdc-drawer-item">
+																								<a class="mdc-drawer-link" href="#">
+																									<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">add_circle_outline</i>
+																									Nouvelle
+																								</a>
+																							</div>
+																							<div class="mdc-list-item mdc-drawer-item">
+																								<a class="mdc-drawer-link" href="#">
+																									<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">archive</i>
+																									Journal
+																								</a>
+																							</div>
+																						</nav>
+																					</div>
+																				</div> -->
+					{% if is_granted('ROLE_ADMIN') %}
+						<div class="mdc-list-item mdc-drawer-item">
+							<a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="param-sm">
+								<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">settings</i>
+								Paramètres
+								<i class="mdc-drawer-arrow material-icons">chevron_right</i>
+							</a>
+							<div class="mdc-expansion-panel" id="param-sm">
+								<nav class="mdc-list mdc-drawer-submenu">
+									<div class="mdc-list-item mdc-drawer-item">
+										<a class="mdc-drawer-link" href="{{ path('utilisateurs_index') }}">
+											<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">people</i>
+											Utilisateurs
+										</a>
+									</div>
+									<div class="mdc-list-item mdc-drawer-item">
+										<a class="mdc-drawer-link" href="{{ path('controlleurs_index') }}">
+											<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">sort</i>
+											Contrôleurs
+										</a>
+									</div>
+									<div class="mdc-list-item mdc-drawer-item">
+										<a class="mdc-drawer-link" href="{{ path('producteurs_index') }}">
+											<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">account_balance</i>
+											Producteurs
+										</a>
+									</div>
+									<div class="mdc-list-item mdc-drawer-item">
+										<a class="mdc-drawer-link" href="{{ path('archivistes_index') }}">
+											<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">business</i>
+											Archivistes
+										</a>
+									</div>
+								</nav>
+							</div>
+						</div>
+					{% endif %}
+				</nav>
+			</div>
+			<div class="profile-actions">
+				<a href="javascript:;" data-toggle="expansionPanel" data-target="param-sm">Paramètres</a>
+				<span class="divider"></span>
+				<a href="{{ path('app_logout') }}">Deconnexion</a>
+			</div>
+		</div>
+	</aside>
+{% endblock %}
+
+{% block header %}
+	<header
+		class="mdc-top-app-bar">
+		{# <img src="{{asset('assets/images/logo.png')}}" width="100%"> #}
+		<div class="mdc-top-app-bar__row">
+			<div class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+				<button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button sidebar-toggler">menu</button>
+				<span class="mdc-top-app-bar__title">PASECA</span>
+				<div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon search-text-field d-none d-md-flex">
+					<i class="material-icons mdc-text-field__icon">search</i>
+					<input class="mdc-text-field__input" id="text-field-hero-input" name="search">
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Recherche..</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+			<div class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__section-right">
+				<div class="menu-button-container menu-profile d-none d-md-block">
+					{% if app.user %}
+						<button class="mdc-button mdc-menu-button">
+							<span class="d-flex align-items-center">
+								<span class="figure">
+									<img src="{{ asset('assets/images/faces/face.png') }}" alt="user" class="user">
+								</span>
+								<span class="user-name">
+									{{ app.user.prenom }}
+									{{ app.user.nom }}
+								</span>
+							</span>
+						</button>
+						<div class="mdc-menu mdc-menu-surface" tabindex="-1">
+							<ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
+								<li class="mdc-list-item" role="menuitem">
+									<div class="item-thumbnail item-thumbnail-icon-only">
+										<i class="mdi mdi-account-edit-outline text-primary"></i>
+									</div>
+									<div class="item-content d-flex align-items-start flex-column justify-content-center">
+										<a href="{{ path('modifier_profil', {'id': app.user.id}) }}">
+											<h6 class="item-subject font-weight-normal">Editer profile</h6>
+										</a>
+									</div>
+								</li>
+								<li class="mdc-list-item" role="menuitem">
+									<div class="item-thumbnail item-thumbnail-icon-only">
+										<i class="mdi mdi-settings-outline text-primary"></i>
+
+									</div>
+									<div class="item-content d-flex align-items-start flex-column justify-content-center">
+										<a href="{{ path('app_logout') }}">
+											<h6 class="item-subject font-weight-normal">Deconnecter</h6>
+										</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					{% else %}
+						<div class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__section-right">
+							<div class="menu-button-container menu-profile d-none d-md-block">
+								<a href="{{ path('app_login') }}">
+									<button class="mdc-button mdc-menu-button">
+										<span class="d-flex align-items-center">
+											<span class="figure">
+												<i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">account_circle</i>
+											</span>
+											<span class="user-name">
+												Se connecter
+											</span>
+										</span>
+									</button>
+								</a>
+							</div>
+						</div>
+					{% endif %}
+				</div>
+
+				<div class="divider d-none d-md-block"></div>
+			</div>
+		</div>
+	</header>
+{% endblock %}
+
+{% block footer %}
+	<footer>
+		<div class="mdc-layout-grid">
+			<div class="mdc-layout-grid__inner">
+				<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+					<span class="tx-14">Copyright BUNEC ©
+						{{ "now"|date("Y") }}
+						<a href="https://afreetech.com/" target="_blank">
+							- Powered by Afreetech</a>. All rights reserved.</span>
+				</div>
+				<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop d-flex justify-content-end">
+					<div class="d-flex align-items-center">
+						<a href="{{ path('doc') }}">Documentation</a>
+						<span class="vertical-divider"></span>
+						<a href="">FAQ</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+{% endblock %}

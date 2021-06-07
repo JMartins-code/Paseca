@@ -1,0 +1,165 @@
+{% extends 'menu.html.twig' %}
+
+{% set Tcount = count|length %}
+{% set Tnaiss = naissance|length %}
+{% set Twed = mariage|length %}
+{% set Tdec = deces|length %}
+
+{% set Pnaiss = (Tnaiss*100)/Tcount %}
+{% set Pwed = (Twed*100)/Tcount %}
+{% set Pdec = (Tdec*100)/Tcount %}
+
+
+{% block dashboard %}
+	<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
+		<div class="mdc-card info-card info-card--success">
+			<div class="card-inner">
+				<h5 class="card-title">Archives</h5>
+				<h5 class="font-weight-light pb-2 mb-1 border-bottom">{{ Tcount }}</h5>
+				<p class="tx-12 text-muted">48% Usée</p>
+				<p class="tx-12 text-muted">52% Exploitable</p>
+				<div class="card-icon-wrapper">
+					<i class="material-icons">dvr</i>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
+		<div class="mdc-card info-card info-card--danger">
+			<div class="card-inner">
+				<h5 class="card-title">Mariage</h5>
+				<h5 class="font-weight-light pb-2 mb-1 border-bottom">{{ Twed }}</h5>
+				<p class="tx-12 text-muted">{{ (Pwed)|number_format(2) }}% des archives</p>
+				<div class="card-icon-wrapper">
+					<i class="material-icons">attach_money</i>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
+		<div class="mdc-card info-card info-card--primary">
+			<div class="card-inner">
+				<h5 class="card-title">Naissances</h5>
+				<h5 class="font-weight-light pb-2 mb-1 border-bottom">{{ Tnaiss }}</h5>
+				<p class="tx-12 text-muted">{{ (Pnaiss)|number_format(2) }}% des archives</p>
+				<div class="card-icon-wrapper">
+					<i class="material-icons">trending_up</i>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
+		<div class="mdc-card info-card info-card--info">
+			<div class="card-inner">
+				<h5 class="card-title">Décès</h5>
+				<h5 class="font-weight-light pb-2 mb-1 border-bottom">{{ Tdec }}</h5>
+				<p class="tx-12 text-muted">{{ (Pdec)|number_format(2) }}% des archives</p>
+				<div class="card-icon-wrapper">
+					<i class="material-icons">credit_card</i>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block body %}
+	{% for message in app.flashes('message') %}
+		<p class="mdc-typography mdc-theme--success">
+			Votre profils a bien été modifié avec succès ! ! !
+		</p>
+	{% endfor %}
+	<div class="d-flex justify-content-between">
+		<h4 class="card-title mb-0">Répatition régionale</h4>
+	</div>
+	<div class="d-block d-sm-flex justify-content-between align-items-center">
+		<h5 class="card-sub-title mb-2 mb-sm-0">Statistique la répartition régionale des archives avec les pourcentages</h5>
+		{# <div class="menu-button-container">
+																																																																																																																																																																																																							<button class="mdc-button mdc-menu-button mdc-button--raised button-box-shadow tx-12 text-dark bg-white font-weight-light">
+																																																																																																																																																																																																								Last 7 days
+																																																																																																																																																																																																								<i class="material-icons">arrow_drop_down</i>
+																																																																																																																																																																																																							</button>
+																																																																																																																																																																																																							<div class="mdc-menu mdc-menu-surface" tabindex="-1">
+																																																																																																																																																																																																								<ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
+																																																																																																																																																																																																									<li class="mdc-list-item" role="menuitem">
+																																																																																																																																																																																																										<h6 class="item-subject font-weight-normal">Back</h6>
+																																																																																																																																																																																																									</li>
+																																																																																																																																																																																																									<li class="mdc-list-item" role="menuitem">
+																																																																																																																																																																																																										<h6 class="item-subject font-weight-normal">Forward</h6>
+																																																																																																																																																																																																									</li>
+																																																																																																																																																																																																									<li class="mdc-list-item" role="menuitem">
+																																																																																																																																																																																																										<h6 class="item-subject font-weight-normal">Reload</h6>
+																																																																																																																																																																																																									</li>
+																																																																																																																																																																																																									<li class="mdc-list-divider"></li>
+																																																																																																																																																																																																									<li class="mdc-list-item" role="menuitem">
+																																																																																																																																																																																																										<h6 class="item-subject font-weight-normal">Save As..</h6>
+																																																																																																																																																																																																									</li>
+																																																																																																																																																																																																								</ul>
+																																																																																																																																																																																																							</div>
+																																																																																																																																																																																																						</div> #}
+	</div>
+	<div class="mdc-layout-grid__inner mt-2">
+		<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-8-tablet">
+			<div class="table-responsive">
+				<table class="table dashboard-table">
+					<tbody>
+						<tr>
+							<td>Extrême-Nord</td>
+							<td>1 671</td>
+							<td class=" font-weight-medium">39%</td>
+						</tr>
+						<tr>
+							<td>Nord</td>
+							<td>1 064</td>
+							<td class=" font-weight-medium">30%</td>
+						</tr>
+						<tr>
+							<td>Adamaoua</td>
+							<td>1 055</td>
+							<td class=" font-weight-medium">45%</td>
+						</tr>
+						<tr>
+							<td>Est</td>
+							<td>5 149</td>
+							<td class=" font-weight-medium">80%</td>
+						</tr>
+						<tr>
+							<td>Centre</td>
+							<td>2 050</td>
+							<td class=" font-weight-medium">10%</td>
+						</tr>
+						<tr>
+							<td>Sud</td>
+							<td>2 050</td>
+							<td class=" font-weight-medium">10%</td>
+						</tr>
+						<tr>
+							<td>Littoral</td>
+							<td>2 050</td>
+							<td class=" font-weight-medium">10%</td>
+						</tr>
+						<tr>
+							<td>Ouest</td>
+							<td>2 050</td>
+							<td class=" font-weight-medium">10%</td>
+						</tr>
+						<tr>
+							<td>Nord-Ouest</td>
+							<td>2 050</td>
+							<td class=" font-weight-medium">10%</td>
+						</tr>
+						<tr>
+							<td>Sud-Ouest</td>
+							<td>2 050</td>
+							<td class=" font-weight-medium">10%</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-8-tablet">
+			<img src="{{ asset('assets/images/carte-cm.jpg') }}" class="img-responsive" alt="">
+			<figcaption>Carte du cameroun</figcaption>
+			{# <div id="revenue-map" class="revenue-world-map"></div> #}
+		</div>
+	</div>
+{% endblock %}

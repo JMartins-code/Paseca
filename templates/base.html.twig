@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+	<head>
+		<title>
+			{% block title %}Gestion information archivistique
+			{% endblock %}
+		</title>
+
+		{% block stylesheets %}
+			<link rel="stylesheet" href="{{ asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
+			<link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css') }}">
+			<link rel="stylesheet" href="{{ asset('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
+			<link rel="stylesheet" href="{{ asset('assets/vendors/jvectormap/jquery-jvectormap.css') }}">
+			<link rel="stylesheet" href="{{ asset('assets/css/demo/style.css') }}">
+
+			<link rel="shortcut icon" href="{{ asset('assets/images/logobunec.png') }}"/>
+		{% endblock %}
+	</head>
+
+	<body>
+		{#<script src="{{ asset('assets/js/preloader.js') }}"></script>#}
+		<div class="body-wrapper"> {% block connexion %}{% endblock %}{% block aside %}{% endblock %}
+			<div class="main-wrapper mdc-drawer-app-content"> {% block header %}{% endblock %}
+				<div class="page-wrapper mdc-toolbar-fixed-adjust">
+					<main class="content-wrapper">
+						<div class="mdc-layout-grid">
+							<div class="mdc-layout-grid__inner"> {% block dashboard %}{% endblock %}
+								<div class="mdc-layout-grid__cell--span-12">
+									<div class="mdc-card"> {% block body %}{% endblock %}
+										</div>
+									</div>
+								</div>
+							</div>
+						</main>
+						{% block footer %}{% endblock %}
+					</div>
+				</div>
+			</div>
+
+			{% block javascripts %}
+				<script src="{{ asset('assets/vendors/js/vendor.bundle.base.js') }}"></script>
+				<script src="{{ asset('assets/js/material.js') }}"></script>
+				<script src="{{ asset('assets/js/misc.js') }}"></script>
+				<script src="{{ asset('assets/js/chartjs.js') }}"></script>
+				<script src="{{ asset('assets/js/dashboard.js') }}"></script>
+				<script src="{{ asset('assets/vendors/chartjs/Chart.min.js') }}"></script>
+				<script src="{{ asset('assets/vendors/jvectormap/jquery-jvectormap.min.js') }}"></script>
+				<script src="{{ asset('assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+			{% endblock %}
+		</body>
+	</html>

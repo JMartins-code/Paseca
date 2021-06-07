@@ -1,0 +1,9 @@
+<form method="post" action="{{ path('institutions_delete', {'id': institution.id}) }}" onsubmit="return confirm('Voulez-vous vraiment supprimer cette institution ?');">
+	<input type="hidden" name="_method" value="DELETE">
+	<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ institution.id) }}">
+
+	<button class="mdc-button mdc-button--outlined outlined-button--secondary mdc-ripple-upgraded">
+		<i class="material-icons mdc-button__icon">delete</i>
+		Supprimer
+	</button>
+</form>

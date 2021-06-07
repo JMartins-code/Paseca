@@ -1,0 +1,237 @@
+{{ form_start(form) }}
+<div class="template-demo">
+	<fieldset style="color:white smoke">
+		<legend>
+			<h2 class="card-sub-title">
+				<b>En-tête du bordereau</b>
+			</h2>
+		</legend>
+		<div class="mdc-layout-grid__inner">
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(form.numRefTransfert, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Référence de transfert</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(form.responsableTransfert, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Responsable transfert</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mdc-layout-grid__inner">
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(form.dateTransfert, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Date transfert</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(form.codeControlleur, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Nom du contrôleur</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mdc-layout-grid__inner">
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(form.dateOuvertureRegistre, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Ouverture registre</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(form.dateFermeture, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Date fermeture</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mdc-layout-grid__inner">
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(form.codeInstitution, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Nom de l'institution de concervation</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(form.observationsTransfert, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Observations</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+
+	<br>
+
+	<fieldset>
+		<legend>
+			<h2 class="card-sub-title">
+				<b>Details des archives à transferer</b>
+			</h2>
+		</legend>
+		<div class="mdc-layout-grid__inner">
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(form.codeArchive, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Code archive</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(form.nomOfficierSignataire, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Noms des officiers ayant signés</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mdc-layout-grid__inner">
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(form.numExemplaire, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Numéro d'exemplaire</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(form.codePlanClasse, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Plan classement</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mdc-layout-grid__inner">
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(form.nbreFaitEnregistrement, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Nbre de faits</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(form.codeRegleGestion, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Code règle de gestion</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mdc-layout-grid__inner">
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(form.formatArchive, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Format</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(form.supportArchive, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Support</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+
+	<br>
+
+	<p>
+		<div class="text-right">
+			<button class="mdc-button mdc-button--raised filled-button--success">{{ button_label|default('Soumettre') }}</button>
+		</div>
+	</p>
+</div>
+{{ form_end(form) }}

@@ -81,8 +81,14 @@
     "egulias/email-validator": {
         "version": "2.1.24"
     },
+    "friendsofphp/proxy-manager-lts": {
+        "version": "v1.0.3"
+    },
+    "friendsoftwig/twigcs": {
+        "version": "v5.0.0"
+    },
     "laminas/laminas-code": {
-        "version": "3.5.1"
+        "version": "3.4.1"
     },
     "laminas/laminas-eventmanager": {
         "version": "3.3.0"
@@ -508,10 +514,13 @@
     "twig/twig": {
         "version": "v3.1.1"
     },
-    "webimpress/safe-writer": {
-        "version": "2.1.0"
-    },
     "webmozart/assert": {
         "version": "1.9.1"
+    },
+    "zendframework/zend-code": {
+        "version": "3.4.1"
+    },
+    "zendframework/zend-eventmanager": {
+        "version": "3.2.1"
     }
 }

@@ -1,0 +1,51 @@
+{% extends 'menu.html.twig' %}
+
+{% block title %}Descriptions
+{% endblock %}
+
+{% block body %}
+	<h1 class="card-title card-padding pb-0">Liste des descriptions des archives</h1>
+	<div class="table-responsive">
+		<table class="table table-hoverable">
+			<thead>
+				<tr>
+					<th class="text-left">Code</th>
+					<th>Etat matériel</th>
+					<th>Nature archive</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for description in descriptions %}
+					<tr>
+						<td class="text-left">{{ description.codeDescription }}</td>
+						<td>{{ description.etatMateriel }}</td>
+						<td>{{ description.natureArchive }}</td>
+						<td>
+							<a href="{{ path('descriptions_show', {'id': description.id}) }}" class="mdc-button mdc-button--raised icon-button filled-button--info">
+								<i class="material-icons mdc-button__icon">visibility</i>
+							</a>
+
+							<a href="{{ path('descriptions_edit', {'id': description.id}) }}" class="mdc-button mdc-button--raised icon-button filled-button--success">
+								<i class="material-icons mdc-button__icon">colorize</i>
+							</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="5">
+							<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2 text-muted tx-14">
+								Aucun objet trouvés !
+							</div>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<div class="menu-button-container">
+		<a href="{{ path('descriptions_new') }}" class="mdc-button mdc-menu-button mdc-button--raised icon-button shaped-button secondary-filled-button">
+			<i class="material-icons mdc-button__icon">add</i>
+		</a>
+	</div>
+{% endblock %}

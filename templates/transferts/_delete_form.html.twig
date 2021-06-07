@@ -1,0 +1,9 @@
+<form method="post" action="{{ path('transferts_delete', {'id': transfert.id}) }}" onsubmit="return confirm('Voulez-vous vraiment supprimer ce transfert ?');">
+	<input type="hidden" name="_method" value="DELETE">
+	<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ transfert.id) }}">
+
+	<button class="mdc-button mdc-button--outlined outlined-button--secondary mdc-ripple-upgraded">
+		<i class="material-icons mdc-button__icon">delete</i>
+		Supprimer
+	</button>
+</form>

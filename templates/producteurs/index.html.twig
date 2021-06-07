@@ -1,0 +1,48 @@
+{% extends 'menu.html.twig' %}
+
+{% block title %}Producteurs
+{% endblock %}
+
+{% block body %}
+	<h1 class="card-title card-padding pb-0">Liste des producteurs</h1>
+	<div class="template-demo">
+		<table class="table table-hoverable">
+			<thead>
+				<tr>
+					<th>Code</th>
+					<th>Nom d'utilisateur</th>
+					<th>Autorite</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for producteur in producteurs %}
+					<tr>
+						<td>{{ producteur.codeProducteurs }}</td>
+						<td>{{ producteur.codeUtilisateur.nom }}</td>
+						<td>{{ producteur.autorite.numImmatriculation }}</td>
+						<td>
+							<a href="{{ path('producteurs_show', {'id': producteur.id}) }}" class="mdc-button mdc-button--raised icon-button filled-button--info">
+								<i class="material-icons mdc-button__icon">visibility</i>
+							</a>
+
+							<a href="{{ path('producteurs_edit', {'id': producteur.id}) }}" class="mdc-button mdc-button--raised icon-button filled-button--success">
+								<i class="material-icons mdc-button__icon">colorize</i>
+							</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="3">Aucun produteur trouvés</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+	<div class="menu-button-container">
+		<a href="{{ path('producteurs_new') }}" class="mdc-button mdc-menu-button mdc-button--raised icon-button shaped-button secondary-filled-button">
+			<i class="material-icons mdc-button__icon">add</i>
+		</a>
+	</div>
+{% endblock %}

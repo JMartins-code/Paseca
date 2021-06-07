@@ -1,0 +1,129 @@
+{% extends 'menu.html.twig' %}
+
+{% block title %}Nouvel utilisateur
+{% endblock %}
+
+{% block body %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+	{{ form_start(registrationForm) }}
+
+	<h1 class="card-title">Nouvel utilisateur</h1>
+	<div class="template-demo">
+		<div class="mdc-layout-grid__inner">
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(registrationForm.nom, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}
+					) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Noms</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(registrationForm.prenom, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input" }}
+					) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Prénoms</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mdc-layout-grid__inner">
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(registrationForm.dateNaissance, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Date de naissance</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(registrationForm.lieuNaissance, {'attr': {'class': "mdc-text-field__input", 'default': " "}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Lieu de naissance</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mdc-layout-grid__inner">
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(registrationForm.numTelephone, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Numéro de téléphone</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(registrationForm.roles, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Profils</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mdc-layout-grid__inner">
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(registrationForm.email, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Email (identifiant)</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+			<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					{{ form_widget(registrationForm.plainPassword, {'attr': {'class': "mdc-text-field__input", 'id': "text-field-hero-input"}}) }}
+					<div class="mdc-notched-outline">
+						<div class="mdc-notched-outline__leading"></div>
+						<div class="mdc-notched-outline__notch">
+							<label for="text-field-hero-input" class="mdc-floating-label">Mot de passe</label>
+						</div>
+						<div class="mdc-notched-outline__trailing"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{#{{ form_row(registrationForm.agreeTerms, { label: 'Conditions de confidentalités'}, {'attr': {'class': "mdc-checkbox__native-control", 'id': "basic-disabled-checkbox"}}) }}#}
+		<p>
+			<div class="text-right">
+				<button class="mdc-button mdc-button--raised filled-button--success">{{ button_label|default('Soumettre') }}</button>
+			</div>
+		</p>
+	</div>
+	{{ form_end(registrationForm) }}
+{% endblock %}

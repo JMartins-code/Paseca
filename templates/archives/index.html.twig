@@ -1,0 +1,57 @@
+{% extends 'menu.html.twig' %}
+
+
+{% block title %}Archives
+{% endblock %}
+
+{% block body %}
+	<h1 class="card-title card-padding pb-0">Liste des archives</h1>
+	<div class="table-responsive">
+		<table class="table table-hoverable">
+			<thead>
+				<tr>
+					<th>Numéro d'ordre</th>
+					<th>Typologie documentaire</th>
+					<th>Statut archive</th>
+					<th>Nbre Exemplaire</th>
+					<th>Date mise a disposition</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for archive in archives %}
+					<tr>
+						<td>{{ archive.numOrdre }}</td>
+						<td>{{ archive.typologieDocumentaire }}</td>
+						<td>{{ archive.statutArchive }}</td>
+						<td>{{ archive.nbreExemplaire }}</td>
+						<td>{{ archive.dateDisposition ? archive.dateDisposition|date('Y-m-d') : '' }}</td>
+						<td>
+							<a class="mdc-button mdc-button--raised icon-button filled-button--info" href="{{ path('archives_show', {'id': archive.id}) }}">
+								<i class="material-icons mdc-button__icon">visibility</i>
+							</a>
+							{% if is_granted('ROLE_PRODU') %}
+								<a class="mdc-button mdc-button--raised icon-button filled-button--success" href="{{ path('archives_edit', {'id': archive.id}) }}">
+									<i class="material-icons mdc-button__icon">colorize</i>
+								</a>
+							{% endif %}
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="9">
+							<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2 text-muted tx-14">
+								Aucunes archives trouvées
+							</div>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</tbody>
+	</table>
+</div>
+<div class="menu-button-container">
+	<a class="mdc-button mdc-menu-button mdc-button--raised icon-button shaped-button secondary-filled-button" href="{{ path('archives_new') }}">
+		<i class="material-icons mdc-button__icon">add</i>
+	</a>
+</div>{% endblock %}
